@@ -19,6 +19,15 @@ extractTitles() {
               elif [[ $(echo "$line" | grep -c "^### ") -eq 1 ]]; then
                 indent="  "
                 prefix="* "
+              elif [[ $(echo "$line" | grep -c "^#### ") -eq 1 ]]; then
+                indent="   "
+                prefix="* "
+              elif [[ $(echo "$line" | grep -c "^##### ") -eq 1 ]]; then
+                indent="    "
+                prefix="* "
+              elif [[ $(echo "$line" | grep -c "^###### ") -eq 1 ]]; then
+                indent="     "
+                prefix="* "
             else
                 indent=""
                 prefix=""
