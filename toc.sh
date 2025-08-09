@@ -2,7 +2,7 @@
 
 file="$1"
 
-extractTitles() {
+createTOC() {
     local file="$1"
     local titles=()
     local indent=" "
@@ -39,4 +39,4 @@ extractTitles() {
     done < "$file"
 }
 
-extractTitles "$file"
+createTOC "$file"
