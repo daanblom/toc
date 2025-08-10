@@ -2,7 +2,19 @@
 
 file="$1"
 
-createTOC() {
+fileCheck () {
+  local firstLine=$(cat "$1" | head -n 1)
+
+  if [[ ! "$1" =~ \.(md|markdown|mdown)$ ]]; then
+    echo "This is not a markdown file, exitting..." & exit 1
+  fi
+  if [[ ( ! "$firstLine" =~ ^(#|---) ) || "$firstLine" =~ ^#! ]]; then
+  echo "Error! This Markdown file doest not start with a '# Title 1' or a YAML block"
+  fi
+
+}
+
+extractTitles() {
     local file="$1"
     local titles=()
     local indent=" "
