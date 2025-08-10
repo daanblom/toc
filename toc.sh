@@ -30,8 +30,7 @@ extractTitles() {
             if (( level == 1 )); then
                 prefix="- "
             else
-                indent=""
-                prefix=""
+                prefix="* "
             fi
 
             # Anchor: lowercase, spaces -> '-', remove non-alphanum except '-'
@@ -43,4 +42,5 @@ extractTitles() {
     done < "$file"
 }
 
-createTOC "$file"
+fileCheck "$file"
+extractTitles "$file"
